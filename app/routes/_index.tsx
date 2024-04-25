@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Button } from "@nextui-org/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -12,6 +13,7 @@ export default function Index() {
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <h1>Welcome to hrms</h1>
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Button color="primary">Button</Button>
       {/* <ul>
         <li>
           <a
