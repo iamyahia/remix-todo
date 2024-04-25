@@ -10,8 +10,9 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
+      <h1>Welcome to hrms</h1>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      {/* <ul>
         <li>
           <a
             target="_blank"
@@ -35,7 +36,7 @@ export default function Index() {
             Remix Docs
           </a>
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 }
