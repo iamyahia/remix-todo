@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import { NextUIProvider } from "@nextui-org/react";
+import Navbar from "./components/Navbar";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -19,6 +20,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <NextUIProvider>
+          <Navbar />
           {children}
           <ScrollRestoration />
           <Scripts />
