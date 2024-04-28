@@ -17,7 +17,7 @@ export default function NotesPage() {
 export async function loader() {
   try {
     const response = await fetch(
-      "https://jsonplaceholder.typicode.com/todos?_limit=4"
+      "https://jsonplaceholder.typicode.com/todos?_limit=5"
     );
     if (!response.ok) {
       throw new Error("Failed to fetch data");
