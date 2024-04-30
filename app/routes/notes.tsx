@@ -1,4 +1,4 @@
-import { redirect } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import NewNote from "~/components/NewNote";
 import Notes from "~/components/Notes";
@@ -36,6 +36,13 @@ export async function action({ request }) {
     const formData = await request.formData();
     const noteData = Object.fromEntries(formData);
 
+    console.log(noteData);
+    if (!noteData.title || !noteData.content) {
+      throw json(
+        { message: "There is some error, please try again" },
+        { status: 404, statusText: "404 text" }
+      );
+    }
     const response = await fetch("https://jsonplaceholder.typicode.com/todos", {
       method: "POST",
       body: JSON.stringify(noteData),

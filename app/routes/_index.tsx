@@ -1,6 +1,6 @@
 import { Button } from "@nextui-org/react";
 import type { MetaFunction } from "@remix-run/node";
-import { NavLink } from "@remix-run/react";
+import { NavLink, useRouteError } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,7 +17,7 @@ export default function Index() {
         <p className="text-gray-700 mb-4">
           Embrace challenges, unleash potential, and conquer dreams
         </p>
-        <NavLink to="notes">
+        <NavLink to="/notes">
           <Button color="primary">Add Notes</Button>
         </NavLink>
       </div>
