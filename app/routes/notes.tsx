@@ -7,7 +7,7 @@ export default function NotesPage() {
   const notes = useLoaderData();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 via-teal-500 to-cyan-500">
+    <div className="flex flex-col p-4 items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 via-teal-500 to-cyan-500">
       <NewNote />
       <Notes notes={notes} />
     </div>
@@ -17,7 +17,7 @@ export default function NotesPage() {
 export async function loader() {
   try {
     const response = await fetch(
-      "https://jsonplaceholder.typicode.com/todos?_limit=5"
+      "https://jsonplaceholder.typicode.com/posts?_limit=5"
     );
     if (!response.ok) {
       throw new Error("Failed to fetch data");
@@ -43,7 +43,7 @@ export async function action({ request }) {
         { status: 404, statusText: "404 text" }
       );
     }
-    const response = await fetch("https://jsonplaceholder.typicode.com/todos", {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
       body: JSON.stringify(noteData),
       headers: {

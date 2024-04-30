@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 import { nextui } from "@nextui-org/react";
+import lineClampPlugin from "@tailwindcss/line-clamp";
 
 export default {
   content: [
@@ -11,5 +12,5 @@ export default {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [nextui(), require("@tailwindcss/line-clamp")],
 } satisfies Config;
