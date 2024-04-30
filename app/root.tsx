@@ -42,7 +42,7 @@ export function ErrorBoundary() {
       <div className="max-w-md p-6 bg-white rounded-lg shadow-lg text-center">
         <h1 className="text-3xl font-bold mb-4">{error.statusText}</h1>
         <p className="text-red-600 mb-4">{error.data?.message}</p>
-        <NavLink href="/" className="text-blue-600 hover:text-blue-800">
+        <NavLink to="/" className="text-blue-600 hover:text-blue-800">
           Return to safety
         </NavLink>
       </div>
