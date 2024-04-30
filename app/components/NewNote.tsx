@@ -1,8 +1,13 @@
 import { Button, useDisclosure } from "@nextui-org/react";
 import NewModal from "./Modal";
+import { Form, useNavigation } from "@remix-run/react";
 
 export default function NewNote() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+  const { state } = useNavigation();
+  const isSubmitting = state === "submitting";
+
   return (
     <>
       <Button onPress={onOpen} color="primary">
@@ -12,7 +17,7 @@ export default function NewNote() {
         <NewModal.Content>
           <NewModal.Header>Modal title</NewModal.Header>
           <NewModal.Body>
-            <form method="POST" className="mb-4">
+            <Form method="POST" className="mb-4">
               <div className="mb-4">
                 <label
                   htmlFor="title"
@@ -43,10 +48,10 @@ export default function NewNote() {
                 ></textarea>
               </div>
 
-              <Button type="submit" color="primary">
-                Submit
+              <Button type="submit" color="primary" isDisabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit"}
               </Button>
-            </form>
+            </Form>
           </NewModal.Body>
         </NewModal.Content>
       </NewModal>
