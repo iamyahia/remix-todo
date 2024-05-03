@@ -1,4 +1,4 @@
-### This repo is dedicated for learning remix as i'm a beginner.
+### This repo is dedicated for learning remix.
 Remix + Vite project.
 
 📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/guides/vite) for details on supported features.
