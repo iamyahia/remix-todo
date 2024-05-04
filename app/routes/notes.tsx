@@ -1,34 +1,15 @@
 import { json, redirect } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import NewNote from "~/components/NewNote";
 import Notes from "~/components/Notes";
 
 export default function NotesPage() {
-  const notes = useLoaderData();
-
   return (
     <div className="flex flex-col p-4 items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 via-teal-500 to-cyan-500">
       <NewNote />
-      <Notes notes={notes} />
+      <Outlet />
     </div>
   );
-}
-
-export async function loader() {
-  try {
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/posts?_limit=5"
-    );
-    if (!response.ok) {
-      throw new Error("Failed to fetch data");
-    }
-    const data = await response.json();
-
-    return data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    throw error;
-  }
 }
 
 export async function action({ request }) {
