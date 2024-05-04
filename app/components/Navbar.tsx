@@ -20,6 +20,9 @@ export default function Navbar() {
             >
               Notes
             </NavLink>
+            <NavLink to="/auth" className="text-white hover:text-gray-300 px-4">
+              login
+            </NavLink>
           </div>
         </div>
       </div>
