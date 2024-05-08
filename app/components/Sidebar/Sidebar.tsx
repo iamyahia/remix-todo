@@ -4,9 +4,10 @@
 import { FC, useRef, useState } from "react";
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
-import { sidebarStructure } from "./structure";
-import { useLocation } from "@remix-run/react";
+import { sidebarItems, sidebarStructure } from "./structure";
+import { NavLink, useLocation } from "@remix-run/react";
 import classNames from "classnames";
+import { ArrowCircleRight, ArrowRight2, Home } from "iconsax-react";
 interface SidebarProps {
   setExpand: (value: boolean) => void;
 }
@@ -264,20 +265,14 @@ const Sidebar2: FC<SidebarProps> = ({ setExpand }) => {
           setExpand(!isExpand);
         }}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className={`${
-            isExpand ? "rotate-0" : "rotate-180"
-          } transform transition duration-500 h-4 w-4`}
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-            clipRule="evenodd"
-          />
-        </svg>
+        <ArrowRight2
+          size="16"
+          color="#000"
+          className={classNames(
+            "transform transition duration-150 h-4 w-4",
+            isExpand || isExpandOnHover ? "rotate-180" : "rotate-0"
+          )}
+        />
       </button>
       <div
         onMouseEnter={() => handleHoverExpand(true)}
@@ -289,13 +284,17 @@ const Sidebar2: FC<SidebarProps> = ({ setExpand }) => {
             <div className="flex mt-4 items-center">
               <span className="border-l-4 border-[#F8D442] h-6 block ml-4" />
               <h1 className="text-center font-bold text-xl text-slate-700 ml-3">
-                {isExpand ? "REMIX TEST" : "R"}
+                {isExpand || isExpandOnHover ? "REMIX TEST" : "R"}
               </h1>
             </div>
             <div
               className={classNames(
-                "my-14 flex flex-col items-center overflow-x-hidden duration-300",
-                isExpand ? "px-3" : isExpandOnHover ? "px-3" : "px-5"
+                "flex flex-col items-center overflow-x-hidden duration-300",
+                isExpand
+                  ? "px-3 my-14 "
+                  : isExpandOnHover
+                  ? "px-3 my-14 "
+                  : "px-5"
               )}
             >
               <a
@@ -332,9 +331,34 @@ const Sidebar2: FC<SidebarProps> = ({ setExpand }) => {
 
             <div className="mt-3 mb-10 p-0 leading-10">
               <ul className="list-none text-sm font-normal px-3">
-                {sidebarStructure.map((item, index) =>
+                {/* {sidebarStructure.map((item, index) =>
                   generateMenu(item, index)
-                )}
+                )} */}
+                {sidebarItems.map((item, index) => (
+                  <li key={index}>
+                    <NavLink
+                      role="button"
+                      to={`#${item.to}`}
+                      tabIndex={0}
+                      id="dashboard"
+                      // className="group m-0 flex cursor-pointer rounded-lg items-center justify-between h-12 py-0 pr-3 mb-1 focus:outline-none pl-4 text-slate-700  hover:bg-slate-300/20 "
+                      className={({ isActive }) =>
+                        classNames(
+                          "group m-0 flex cursor-pointer rounded-lg items-center justify-between h-12 py-0 pr-3 mb-1 focus:outline-none pl-4 text-slate-700  hover:bg-slate-300/20 "
+                        )
+                      }
+                    >
+                      <div className="flex items-center gap-3">
+                        {<item.icon size={24} />}
+                        {isExpand || isExpandOnHover ? (
+                          <div className="truncate ">{item.title}</div>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
