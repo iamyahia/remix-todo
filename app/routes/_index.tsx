@@ -1,6 +1,6 @@
-import { Button } from "@nextui-org/react";
 import type { MetaFunction } from "@remix-run/node";
-import { NavLink, useRouteError } from "@remix-run/react";
+import { useState } from "react";
+import Sidebar from "~/components/Sidebar/Sidebar";
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,16 +10,22 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const [sideMenuIsExpand, setSideMenuIsExpand] = useState(true);
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 via-teal-500 to-cyan-500">
-      <div className="max-w-md p-6 bg-white rounded-lg shadow-lg text-center">
-        <h1 className="text-3xl font-bold mb-4">Welcome to track your notes</h1>
-        <p className="text-gray-700 mb-4">
-          Embrace challenges, unleash potential, and conquer dreams
-        </p>
-        <NavLink to="/notes">
-          <Button color="primary">Add Notes</Button>
-        </NavLink>
+    <div className="relative min-h-screen md:flex">
+      {/* sidemenu */}
+      <Sidebar setExpand={setSideMenuIsExpand} />
+      {/* content */}
+      <div
+        className={`flex-1 min-h-screen mx-0 bg-slate-100 transition-all duration-300 ease-in-out ${
+          sideMenuIsExpand ? "md:ml-72" : "md:ml-20"
+        }`}
+      >
+        <div>
+          <h1>hi</h1>
+          <h4>by</h4>
+        </div>
       </div>
     </div>
   );
