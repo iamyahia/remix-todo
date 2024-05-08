@@ -6,7 +6,7 @@ export default function NewNote() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const { state } = useNavigation();
-  const isSubmitting = state === "submitting";
+  const isSubmitting = state ! == "idle";
 
   return (
     <>

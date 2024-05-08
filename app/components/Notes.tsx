@@ -4,7 +4,7 @@ export default function Notes({ notes }) {
   return (
     <div className="flex flex-col items-center justify-center">
       {notes.map((data, index) => (
-        <NavLink to={"" + data.id} key={index} className="m-8">
+        <NavLink to={`${data.id}`} key={index} className="m-8">
           <div className="flex flex-wrap justify-center p-4">
             <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white m-4">
               <div className="px-6 py-4">
