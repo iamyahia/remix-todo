@@ -1,7 +1,7 @@
 //! NOTE: This sidebar was forked in codesandbox: https://codesandbox.io/p/sandbox/sidebar-tailwind-8dkck3?file=%2Fsrc%2FApp.tsx
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { FC, useState } from "react";
+import { useState } from "react";
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import { sidebarItems } from "./structure";
@@ -12,7 +12,7 @@ interface SidebarProps {
   setExpand: (value: boolean) => void;
 }
 
-const Sidebar: FC<SidebarProps> = ({ setExpand }) => {
+function Sidebar({ setExpand }: SidebarProps) {
   const username = "Yahia hasan";
   const role = "Admin";
   const profilePic =
@@ -150,6 +150,6 @@ const Sidebar: FC<SidebarProps> = ({ setExpand }) => {
       </div>
     </nav>
   );
-};
+}
 
-export default Sidebar;
+export { Sidebar };
