@@ -1,5 +1,5 @@
 import { Modal } from "@nextui-org/react";
-import Header from "./Header";
+import ModalHeader from "./ModalHeader";
 import Body from "./Body";
 import Footer from "./Footer";
 import Content from "./Content";
@@ -12,7 +12,7 @@ export default function NewModal({ children, ...restProps }) {
   );
 }
 
-NewModal.Header = Header;
+NewModal.ModalHeader = ModalHeader;
 NewModal.Body = Body;
 NewModal.Footer = Footer;
 NewModal.Content = Content;
