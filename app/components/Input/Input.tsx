@@ -1,7 +1,5 @@
-import { Input as PrimitiveInput } from "@nextui-org/react";
-
 function Input({ ...restProps }) {
-  return <PrimitiveInput {...restProps} />;
+  return <input {...restProps} />;
 }
 
 export { Input };

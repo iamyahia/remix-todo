@@ -11,13 +11,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.3.6",
     "@remix-run/node": "^2.9.1",
     "@remix-run/react": "^2.9.1",
     "@remix-run/serve": "^2.9.1",
     "@tailwindcss/line-clamp": "^0.4.4",
     "classnames": "^2.5.1",
-    "framer-motion": "^11.1.7",
     "iconsax-react": "^0.0.8",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
