@@ -14,7 +14,7 @@ export default function NavigationLayout() {
           sideMenuIsExpand ? "md:ml-72" : "md:ml-20"
         }`}
       >
-        {/* <Header /> */}
+        <Header />
 
         <Outlet />
       </div>
