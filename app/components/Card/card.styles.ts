@@ -3,10 +3,10 @@ import { cva } from "class-variance-authority";
 const cardVariants = cva("items-center", {
   variants: {
     variant: {
-      students: "bg-blue-500 text-blue-700",
-      courses: "bg-pink-500 text-pink-700",
-      payments: "bg-yellow-500 text-yellow-700",
-      users: "bg-green-500 text-green-700",
+      students: "bg-[#F0F9FF] text-[#74C1ED] ",
+      courses: "bg-[#FEF6FB] text-[#EE95C5]",
+      payments: "bg-[#FEFBEC] text-[#F6C762]",
+      users: "bg-[#ECFEF0] text-[#80CC90]",
     },
     size: {
       sm: "px-3 py-2 text-2xs gap-2",
