@@ -1,5 +1,3 @@
-Testing commit to yesterday
-
 ### This repo is dedicated to learn remix.
 
 Remix + Vite project.
