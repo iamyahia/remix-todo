@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "~/lib/utils";
-import { HeartTick } from "iconsax-react";
+import { DollarSquare, HeartTick, Profile2User, Save2 } from "iconsax-react";
 
 import cardVariants from "./card.styles";
 import { VariantProps } from "class-variance-authority";
@@ -15,21 +15,25 @@ function CardBox({}: CardBoxProps) {
       title: "students",
       total: 243,
       icon: HeartTick,
+      iconColor: "74C1ED",
     },
     {
       title: "courses",
       total: 3,
-      icon: HeartTick,
+      icon: Save2,
+      iconColor: "EE95C5",
     },
     {
       title: "payments",
       total: 10000,
-      icon: HeartTick,
+      icon: DollarSquare,
+      iconColor: "F6C762",
     },
     {
       title: "users",
       total: 243,
-      icon: HeartTick,
+      icon: Profile2User,
+      iconColor: "80CC90",
     },
   ];
 
@@ -39,15 +43,15 @@ function CardBox({}: CardBoxProps) {
         <div
           className={cn(
             cardVariants({ variant: card.title }),
-            "flex justify-between w-full sm:w-1/2 md:w-1/3 lg:w-1/4  px-6 py-12 rounded-lg"
+            "flex justify-between w-full sm:w-1/2 md:w-1/3 lg:w-1/4  px-6 py-12 rounded-lg text-[#6C6C6C]"
           )}
           key={index}
         >
           <div className="">
             <h6>{card.title}</h6>
-            <p>{card.total}</p>
+            <p className="font-bold">{card.total}</p>
           </div>
-          {<card.icon size={58} />}
+          {<card.icon className={`text-[#${card.iconColor}]`} size={58} />}
         </div>
       ))}
     </div>
