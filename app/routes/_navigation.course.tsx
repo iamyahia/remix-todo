@@ -81,15 +81,12 @@ export default function Course() {
   return (
     <div className="container mx-auto p-4">
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200">
+        <table className="min-w-full bg-white ">
           <thead className="bg-gray-50">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <th
-                    className="px-4 py-2 border-b border-gray-200"
-                    key={header.id}
-                  >
+                  <th className="px-4 py-2 border-b " key={header.id}>
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -103,12 +100,9 @@ export default function Course() {
           </thead>
           <tbody>
             {table.getRowModel().rows.map((row) => (
-              <tr className="hover:bg-gray-100" key={row.id}>
+              <tr className="hover:bg-gray-100 border-b" key={row.id}>
                 {row.getVisibleCells().map((cell) => (
-                  <td
-                    className="px-4 py-2 border-b border-gray-200"
-                    key={cell.id}
-                  >
+                  <td className="px-4 py-2   text-center" key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
