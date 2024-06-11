@@ -57,7 +57,7 @@ const columns = [
   }),
   columnHelper.accessor("email", {
     cell: (info) => info.getValue(),
-    header: "Full Name",
+    header: "Email",
   }),
   columnHelper.accessor("phone", {
     header: "Phone",
@@ -81,12 +81,15 @@ export default function Course() {
   return (
     <div className="container mx-auto p-4">
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white ">
+        <table className="min-w-full bg-white  border-separate border-spacing-0 ">
           <thead className="bg-gray-50">
             {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
+              <tr className="border-b" key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <th className="px-4 py-2 border-b " key={header.id}>
+                  <th
+                    className="px-4 py-2 text-[#ACACAC] text-sm"
+                    key={header.id}
+                  >
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -100,9 +103,15 @@ export default function Course() {
           </thead>
           <tbody>
             {table.getRowModel().rows.map((row) => (
-              <tr className="hover:bg-gray-100 border-b" key={row.id}>
+              <tr
+                className="group border border-transparent hover:border-blue-400 even:bg-[#F8F8F8]"
+                key={row.id}
+              >
                 {row.getVisibleCells().map((cell) => (
-                  <td className="px-4 py-2   text-center" key={cell.id}>
+                  <td
+                    className="px-4 whitespace-nowrap transition-all duration-200 py-2 text-sm text-center  first:rounded-tl-lg first:rounded-bl-lg  last:rounded-tr-lg last:rounded-br-lg  text-current  border-y border-transparent  first:border-l  last:border-r group-hover:border-gray-400"
+                    key={cell.id}
+                  >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
