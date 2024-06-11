@@ -87,7 +87,7 @@ export default function Course() {
               <tr className="border-b" key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <th
-                    className="px-4 py-2 text-[#ACACAC] text-sm"
+                    className="px-4 py-4 text-[#ACACAC] text-sm"
                     key={header.id}
                   >
                     {header.isPlaceholder
@@ -109,7 +109,7 @@ export default function Course() {
               >
                 {row.getVisibleCells().map((cell) => (
                   <td
-                    className="px-4 whitespace-nowrap transition-all duration-200 py-2 text-sm text-center  first:rounded-tl-lg first:rounded-bl-lg  last:rounded-tr-lg last:rounded-br-lg  text-current  border-y border-transparent  first:border-l  last:border-r group-hover:border-gray-400"
+                    className="px-4 whitespace-nowrap transition-all duration-200 py-4 text-sm text-center  first:rounded-tl-lg first:rounded-bl-lg  last:rounded-tr-lg last:rounded-br-lg  text-current  border-y border-transparent  first:border-l  last:border-r group-hover:border-gray-400"
                     key={cell.id}
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
