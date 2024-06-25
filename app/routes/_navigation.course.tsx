@@ -1,26 +1,21 @@
+import { useState } from "react";
+
 import {
-  createColumnHelper,
   flexRender,
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { useState } from "react";
 
-type Person = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: number;
-  enrollNumber: string;
-  dateOfAdmission: string;
-};
+import { ViewDialog } from "~/components/ViewDialog";
+
+import type { TPerson, TColumn, TCellInfo } from "../types/course";
 
 function generateUniqueRandomNumber() {
   const timestamp = Date.now(); // Current timestamp in milliseconds
   const randomNum = Math.floor(Math.random() * 1000); // Random number between 0 and 999
   return timestamp.toString() + randomNum.toString();
 }
-const defaultData: Person[] = [
+const defaultData: TPerson[] = [
   {
     firstName: "tanner",
     lastName: "linsley",
@@ -47,27 +42,38 @@ const defaultData: Person[] = [
   },
 ];
 
-const columnHelper = createColumnHelper<Person>();
-
-const columns = [
-  columnHelper.accessor((row) => row.firstName + " " + row.lastName, {
-    id: "firstName",
-    cell: (info) => info.getValue(),
+const columns: TColumn[] = [
+  {
+    id: "fullName",
+    accessorFn: (row: TPerson) => `${row.firstName} ${row.lastName}`,
+    cell: (info: TCellInfo<TPerson>) => info.getValue(),
     header: "Full Name",
-  }),
-  columnHelper.accessor("email", {
-    cell: (info) => info.getValue(),
+  },
+  {
+    accessorKey: "email",
+    cell: (info: TCellInfo<TPerson>) => info.getValue(),
     header: "Email",
-  }),
-  columnHelper.accessor("phone", {
+  },
+  {
+    accessorKey: "phone",
     header: "Phone",
-  }),
-  columnHelper.accessor("enrollNumber", {
+    cell: (info: TCellInfo<TPerson>) => info.getValue(),
+  },
+  {
+    accessorKey: "enrollNumber",
     header: "Enrollment Number",
-  }),
-  columnHelper.accessor("dateOfAdmission", {
+    cell: (info: TCellInfo<TPerson>) => info.getValue(),
+  },
+  {
+    accessorKey: "dateOfAdmission",
     header: "Date of Admission",
-  }),
+    cell: (info: TCellInfo<TPerson>) => info.getValue(),
+  },
+  {
+    id: "actions",
+    header: "Action",
+    cell: ViewDialog,
+  },
 ];
 
 export default function Course() {
