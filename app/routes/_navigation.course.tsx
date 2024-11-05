@@ -10,11 +10,8 @@ import { ViewDialog } from "~/components/ViewDialog";
 
 import type { TPerson, TColumn, TCellInfo } from "../types/course";
 
-function generateUniqueRandomNumber() {
-  const timestamp = Date.now(); // Current timestamp in milliseconds
-  const randomNum = Math.floor(Math.random() * 1000); // Random number between 0 and 999
-  return timestamp.toString() + randomNum.toString();
-}
+import { generateUniqueRandomNumber } from "~/lib/utils";
+
 const defaultData: TPerson[] = [
   {
     firstName: "tanner",
@@ -85,7 +82,7 @@ export default function Course() {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div className="container mx-auto p-4">
+    <div className=" mx-auto p-7">
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white  border-separate border-spacing-0 ">
           <thead className="bg-gray-50">
